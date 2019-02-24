@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/footView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<TextView
+    android:layout_width="match_parent"
+    android:text="FootView"
+    android:gravity="center"
+    android:textSize="18sp"
+    android:textColor="#FFFFFF"
+    android:background="@color/colorPrimary"
+    android:layout_height="50dp" />
+</LinearLayout>
