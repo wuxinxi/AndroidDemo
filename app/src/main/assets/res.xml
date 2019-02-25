@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<result>
+    <resultCode>200</resultCode>
+    <resultMsg>登录成功</resultMsg>
+    <res>
+        <user>张三</user>
+        <content>2019年注册</content>
+    </res>
+</result>

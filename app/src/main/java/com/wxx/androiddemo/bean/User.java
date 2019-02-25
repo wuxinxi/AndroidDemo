@@ -7,6 +7,7 @@ package com.wxx.androiddemo.bean;
  * TODO:一句话描述
  */
 public class User {
+    private int id;
     private int age;
     private String name;
     private String content;
@@ -42,5 +43,24 @@ public class User {
 
     public void setHeadImgUrl(String headImgUrl) {
         this.headImgUrl = headImgUrl;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", age=" + age +
+                ", name='" + name + '\'' +
+                ", content='" + content + '\'' +
+                ", headImgUrl='" + headImgUrl + '\'' +
+                '}';
     }
 }
