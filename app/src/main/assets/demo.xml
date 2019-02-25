@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <users>
-    <user id="0">
-        <age>20</age>
-        <name>李四</name>
-        <content>大家好,我是李四</content>
-        <headImgUrl>http://wxinxi.github.io</headImgUrl>
-    </user>
     <user id="1">
         <age>25</age>
         <name>王五</name>
