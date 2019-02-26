@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+
+        <variable
+            name="user"
+            type="com.wxx.androiddemo.bean.User" />
+
+        <variable
+            name="presenter"
+            type="com.wxx.androiddemo.databinding.MainActivity.Presenter" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:hint="用户名" />
+            android:hint="用户名"
+            android:onTextChanged="@{presenter.onTextChanged}"
+            android:text="@{user.name}" />
 
         <EditText
-            android:id="@+id/psw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:hint="密码" />
+            android:hint="密码"
+            android:text="@{user.psw}" />
 
         <Button
-            android:id="@+id/ok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

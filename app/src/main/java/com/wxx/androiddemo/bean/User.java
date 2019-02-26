@@ -16,6 +16,20 @@ public class User implements Parcelable {
     private String name;
     private String content;
     private String headImgUrl;
+    private String psw;
+
+    public User(String name, String psw) {
+        this.name = name;
+        this.psw = psw;
+    }
+
+    public String getPsw() {
+        return psw;
+    }
+
+    public void setPsw(String psw) {
+        this.psw = psw;
+    }
 
     public int getId() {
         return id;
