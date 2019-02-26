@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/psw"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/line"
+    android:hint="密码"
+    android:inputType="textWebPassword"
+    android:lines="1"
+    android:maxLength="16"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:textColor="@color/colorPrimaryDark"
+    android:textCursorDrawable="@drawable/cursor_shape"
+    android:textSize="18sp">
+
+</EditText>

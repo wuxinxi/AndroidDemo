@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.wxx.androiddemo.R;
 import com.wxx.androiddemo.base.BaseActivity;
 import com.wxx.androiddemo.xml.dom.DomParseThread;
-import com.wxx.androiddemo.xml.pull.PullParseThread;
+import com.wxx.androiddemo.xml.sax.SaxParseXmlThread;
 
 /**
  * 作者：Tangren on 2019-02-25
@@ -29,8 +29,9 @@ public class MainActivity extends BaseActivity {
         DomParseThread thread = new DomParseThread(getApplicationContext());
 //        thread.start();
 
-        new PullParseThread(getApplicationContext()).start();
+//        new PullParseThread(getApplicationContext()).start();
 
+        new SaxParseXmlThread(getApplicationContext()).start();
 
     }
 

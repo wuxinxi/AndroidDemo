@@ -27,7 +27,15 @@ public class LoginBean {
         this.resultMsg = resultMsg;
     }
 
-    class Res {
+    public Res getRes() {
+        return res;
+    }
+
+    public void setRes(Res res) {
+        this.res = res;
+    }
+
+    public static class Res {
         private String user;
         private String content;
 

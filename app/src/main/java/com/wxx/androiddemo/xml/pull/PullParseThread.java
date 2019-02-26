@@ -31,11 +31,11 @@ public class PullParseThread extends Thread {
         super.run();
         AssetManager manager = context.getAssets();
         try {
-//            List<User> users = toParseToList(manager.open("res.xml"));
-//            for (User user : users) {
-//                Log.e("PullParseThread",
-//                        "run(PullParseThread.java:36)" + user);
-//            }
+            List<User> users = toParseToList(manager.open("res.xml"));
+            for (User user : users) {
+                Log.e("PullParseThread",
+                        "run(PullParseThread.java:36)" + user);
+            }
 
             parseXml(context.getAssets().open("res.xml"));
         } catch (Exception e) {
