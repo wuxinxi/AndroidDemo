@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.wxx.androiddemo.bean.User" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:paddingLeft="10dp"
+                android:text="@{user.name}"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:lines="1"
+                android:paddingLeft="10dp"
+                android:text="@{user.content}"
+                android:textColor="@color/colorBlack" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/bgColor"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:imgUrl="@{user.headImgUrl}"
+            app:placeholder="@{@drawable/ic_launcher_background}" />
+
+    </LinearLayout>
+</layout>

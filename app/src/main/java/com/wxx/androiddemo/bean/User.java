@@ -1,8 +1,15 @@
 package com.wxx.androiddemo.bean;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+import android.databinding.ObservableArrayList;
+import android.databinding.ObservableArrayMap;
+import android.databinding.ObservableBoolean;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+
+import com.wxx.androiddemo.BR;
 
 /**
  * 作者：Tangren on 2019-02-22
@@ -10,12 +17,43 @@ import android.support.annotation.NonNull;
  * 邮箱：996489865@qq.com
  * TODO:一句话描述
  */
-public class User implements Parcelable {
+public class User extends BaseObservable implements Parcelable {
     private int id;
     private int age;
-    private String name;
-    private String content;
+    private String name = "default";
+    private String content = "xxx";
     private String headImgUrl;
+    private ObservableBoolean isVisable;
+    public ObservableArrayMap<String, String> map = new ObservableArrayMap<>();
+    public ObservableArrayList<String> list = new ObservableArrayList<>();
+
+    public ObservableBoolean isVisable() {
+        return isVisable;
+    }
+
+    public void setIsVisable(boolean isVisable) {
+        this.isVisable.set(isVisable);
+    }
+
+    public User( boolean isVisable, String name, String content) {
+        this.name = name;
+        this.content = content;
+        this.isVisable = new ObservableBoolean(isVisable);
+    }
+
+    public User(String name, String content) {
+        this.name = name;
+        this.content = content;
+        isVisable = new ObservableBoolean(false);
+        map.put("ite_1", "Click_1 参数");
+        map.put("ite_2", "Click_2 参数");
+        map.put("ite_3", "Click_3 参数");
+
+        list.add("Click_1");
+        list.add("Click_1");
+        list.add("Click_1");
+    }
+
 
     public int getId() {
         return id;
@@ -33,20 +71,24 @@ public class User implements Parcelable {
         this.age = age;
     }
 
+    @Bindable
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+        notifyPropertyChanged(BR.name);
     }
 
+    @Bindable
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content;
+        notifyPropertyChanged(BR.content);
     }
 
     public String getHeadImgUrl() {
