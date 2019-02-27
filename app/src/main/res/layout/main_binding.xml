@@ -3,8 +3,6 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="user"
             type="com.wxx.androiddemo.bean.User" />
@@ -20,7 +18,6 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -29,76 +26,20 @@
             android:text="@{user.name}" />
 
         <EditText
-            android:id="@+id/psw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:hint="密码"
-            android:text="@{user.content}" />
+            android:text="@{user.psw}" />
 
         <Button
-            android:id="@+id/btn_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/press"
-            android:onClick="@{presenter.onClick}"
-            android:text="@{user.list[1]}"
-            android:textColor="@color/colorWhite"
+            android:text="OK"
             android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/btn_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="20dp"
-            android:background="@{@drawable/press}"
-            android:onClick="@{presenter.onClick}"
-            android:text='@{user.map["ite_2"]}'
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp"
-            android:visibility="@{user.visable? View.GONE : View.VISIBLE}" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/add"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/press"
-                android:onClick="@{presenter.onClick}"
-                android:text="增加"
-                android:textColor="@color/colorWhite" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorWhite" />
-
-            <Button
-                android:id="@+id/remove"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/press"
-                android:onClick="@{presenter.onClick}"
-                android:text="移除"
-                android:textColor="@color/colorWhite" />
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </LinearLayout>
 </layout>
