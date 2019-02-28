@@ -2,10 +2,14 @@ package com.wxx.androiddemo.databinding;
 
 import android.databinding.BindingAdapter;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.wxx.androiddemo.R;
+import com.wxx.androiddemo.bean.ArticleBean;
+
+import java.util.List;
 
 /**
  * 作者：Tangren on 2019-02-27
@@ -21,5 +25,10 @@ public class MyBindingAdapter {
                 .placeholder(placeholder)
                 .error(R.mipmap.error)
                 .into(img);
+    }
+
+    @BindingAdapter({"app:adapter"})
+    public static void setAdapter(RecyclerView recyclerView,List<ArticleBean.DataBean.DatasBean> mList) {
+
     }
 }

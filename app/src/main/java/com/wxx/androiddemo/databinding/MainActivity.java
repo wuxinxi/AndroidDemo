@@ -1,11 +1,15 @@
 package com.wxx.androiddemo.databinding;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.OnRebindCallback;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.transition.TransitionManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.wxx.androiddemo.R;
@@ -40,11 +44,19 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
             }
         });
+
+        //添加动画
+        binding.addOnRebindCallback(new OnRebindCallback() {
+            @Override
+            public boolean onPreBind(ViewDataBinding binding) {
+                ViewGroup root = (ViewGroup) binding.getRoot();
+                TransitionManager.beginDelayedTransition(root);
+                return true;
+            }
+        });
     }
 
-    boolean[] isStatus = new boolean[]{true, false};
     String[] languages = new String[]{"Android", "Java", "Html", "RN", "Python"};
-
 
     String[] urls = new String[]{
             "https://avatar.csdnimg.cn/2/4/7/1_wu996489865.jpg",
@@ -61,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     user.setIsVisable(!user.isVisable().get());
                     break;
                 case R.id.add:
-                    boolean isVisable = isStatus[new Random().nextInt(2)];
+                    boolean isVisable = new Random().nextBoolean();
                     String language = languages[new Random().nextInt(5)];
                     user = new User(isVisable, language, language + "是这个世界上最好用的语言!");
                     user.setHeadImgUrl(urls[new Random().nextInt(3)]);
@@ -82,6 +94,16 @@ public class MainActivity extends AppCompatActivity {
 
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             binding.user.setSelection(s.length());
+        }
+
+        /**
+         * CheckBox事件
+         *
+         * @param view      .
+         * @param isChecked .
+         */
+        public void onCheckedChanged(View view, boolean isChecked) {
+            binding.setShowTextView(isChecked);
         }
     }
 }

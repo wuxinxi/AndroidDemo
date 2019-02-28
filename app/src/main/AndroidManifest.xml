@@ -14,8 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:name=".app.MyApplication"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".databinding.MainActivity">
+        <activity android:name="com.wxx.androiddemo.databinding.mvvmdemo.DemoMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
