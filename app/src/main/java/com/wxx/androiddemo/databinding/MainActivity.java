@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    String[] languages = new String[]{"Android", "Java", "Html", "RN", "Python"};
+    String[] languages = new String[]{"C++", "Java", "Go", "RN", "Python"};
 
     String[] urls = new String[]{
             "https://avatar.csdnimg.cn/2/4/7/1_wu996489865.jpg",

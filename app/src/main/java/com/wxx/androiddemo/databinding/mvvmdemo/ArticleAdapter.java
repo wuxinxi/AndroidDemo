@@ -23,46 +23,46 @@ import java.util.List;
  * 邮箱：996489865@qq.com
  * TODO:一句话描述
  */
-public class ArticleAdapter extends RecyclerView.Adapter<BindingViewHolder> {
-    private LayoutInflater inflater;
-    private List<ArticleBean.DataBean.DatasBean> mList;
-    private Context mContext;
+    public class ArticleAdapter extends RecyclerView.Adapter<BindingViewHolder> {
+        private LayoutInflater inflater;
+        private List<ArticleBean.DataBean.DatasBean> mList;
+        private Context mContext;
 
-    public ArticleAdapter(Context mContext) {
-        mList = new ArrayList<>();
-        this.mContext = mContext;
-        inflater = LayoutInflater.from(mContext);
+        public ArticleAdapter(Context mContext) {
+            mList = new ArrayList<>();
+            this.mContext = mContext;
+            inflater = LayoutInflater.from(mContext);
+        }
+
+        @NonNull
+        @Override
+        public BindingViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+            ViewDataBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_article, viewGroup, false);
+            return new BindingViewHolder(binding);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull BindingViewHolder bindingViewHolder, int i) {
+            ArticleBean.DataBean.DatasBean datasBean = mList.get(i);
+            datasBean.setPublishTimeStr(AppUtil.longTime2StringTime(datasBean.getPublishTime()));
+            bindingViewHolder.getmBinding().setVariable(BR.article, datasBean);
+            bindingViewHolder.getmBinding().executePendingBindings();
+        }
+
+        @Override
+        public int getItemCount() {
+            return mList != null ? mList.size() : 0;
+        }
+
+        public void addAll(List<ArticleBean.DataBean.DatasBean> list) {
+            mList.addAll(list);
+            notifyDataSetChanged();
+        }
+
+        public void loadRefresh(List<ArticleBean.DataBean.DatasBean> list) {
+            mList.clear();
+            mList.addAll(list);
+            notifyDataSetChanged();
+        }
+
     }
-
-    @NonNull
-    @Override
-    public BindingViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        ViewDataBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_article, viewGroup, false);
-        return new BindingViewHolder(binding);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull BindingViewHolder bindingViewHolder, int i) {
-        ArticleBean.DataBean.DatasBean datasBean = mList.get(i);
-        datasBean.setPublishTimeStr(AppUtil.longTime2StringTime(datasBean.getPublishTime()));
-        bindingViewHolder.getmBinding().setVariable(BR.article, datasBean);
-        bindingViewHolder.getmBinding().executePendingBindings();
-    }
-
-    @Override
-    public int getItemCount() {
-        return mList != null ? mList.size() : 0;
-    }
-
-    public void addAll(List<ArticleBean.DataBean.DatasBean> list) {
-        mList.addAll(list);
-        notifyDataSetChanged();
-    }
-
-    public void loadRefresh(List<ArticleBean.DataBean.DatasBean> list) {
-        mList.clear();
-        mList.addAll(list);
-        notifyDataSetChanged();
-    }
-
-}

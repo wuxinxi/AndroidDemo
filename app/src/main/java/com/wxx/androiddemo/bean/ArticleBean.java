@@ -1,5 +1,7 @@
 package com.wxx.androiddemo.bean;
 
+import com.wxx.androiddemo.databinding.mvvmdemo.RequestType;
+
 import java.util.List;
 
 /**
@@ -19,6 +21,15 @@ public class ArticleBean {
     private DataBean data;
     private int errorCode;
     private String errorMsg;
+    private RequestType type;
+
+    public RequestType getType() {
+        return type;
+    }
+
+    public void setType(RequestType type) {
+        this.type = type;
+    }
 
     public DataBean getData() {
         return data;

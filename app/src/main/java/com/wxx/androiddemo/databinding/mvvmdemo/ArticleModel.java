@@ -26,7 +26,7 @@ public class ArticleModel {
         this.article = article;
     }
 
-    public void fetch(int what, int page) {
+    public void fetch(int what, int page, final RequestType type) {
         this.what = what;
         request = new JsonRequest(AppUtil.getUrl(page), RequestMethod.GET);
         request.setCacheMode(CacheMode.REQUEST_NETWORK_FAILED_READ_CACHE);
@@ -35,7 +35,7 @@ public class ArticleModel {
             public void success(int what, Response<JSONObject> response) {
                 ArticleBean articleBean = new Gson().fromJson(response.get().toJSONString(), ArticleBean.class);
                 if (article != null) {
-                    article.onSuccess(articleBean.getData().getDatas());
+                    article.onSuccess(type,articleBean);
                 }
             }
 

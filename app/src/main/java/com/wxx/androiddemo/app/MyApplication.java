@@ -3,7 +3,6 @@ package com.wxx.androiddemo.app;
 import android.app.Application;
 
 import com.yanzhenjie.nohttp.InitializationConfig;
-import com.yanzhenjie.nohttp.Logger;
 import com.yanzhenjie.nohttp.NoHttp;
 import com.yanzhenjie.nohttp.OkHttpNetworkExecutor;
 
@@ -22,6 +21,6 @@ public class MyApplication extends Application {
                 .connectionTimeout(10 * 1000)
                 .readTimeout(10 * 1000)
                 .build());
-        Logger.setDebug(true);
+//        Logger.setDebug(true);
     }
 }
