@@ -1,11 +1,13 @@
 package com.wxx.androiddemo.util;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -32,8 +34,34 @@ public class AppUtil {
 
     private static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", new Locale("zh", "CN"));
 
+    /**
+     * 时间转换
+     *
+     * @param publishTime 时间戳
+     * @return .
+     */
     public static String longTime2StringTime(long publishTime) {
-        long time = publishTime / 1000;
-        return format.format(new Date(time));
+        return format.format(new Date(publishTime));
     }
+
+    /**
+     * @param context 上下文
+     * @param pid     pid
+     * @return 判断进程是否存在
+     */
+    public static boolean isProcessExit(Context context, int pid) {
+        ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> list;
+        if (manager != null) {
+            list = manager.getRunningAppProcesses();
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : list) {
+                if (runningAppProcessInfo.pid == pid) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
 }

@@ -8,15 +8,17 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".app.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher_drawable"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_launcher_drawable"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".app.MyApplication"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.wxx.androiddemo.databinding.mvvmdemo.DemoMainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/ThemeSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +27,7 @@
         </activity>
 
         <service android:name=".intentService.MyIntentService" />
-
+        <activity android:name=".databinding.mvvmdemo.DemoMainActivity" />
     </application>
 
 </manifest>
