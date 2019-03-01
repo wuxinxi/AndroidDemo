@@ -9,7 +9,7 @@
     </style>
 
     <style name="ThemeSplash">
-        <item name="android:background">@drawable/splash_bg</item>
+        <item name="android:background">@drawable/splash</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowActionBar">false</item>

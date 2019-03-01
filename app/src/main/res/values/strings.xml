@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidDemo%1$s</string>
+    <string name="name">AndroidDemo</string>
 </resources>
