@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-import com.wxx.androiddemo.databinding.mvvmdemo.DemoMainActivity;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -22,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startActivityGo() {
-        Intent intent = new Intent(MainActivity.this, DemoMainActivity.class);
+        Intent intent = new Intent(MainActivity.this, com.wxx.androiddemo.memory.MainActivity.class);
         startActivity(intent);
         finish();
     }

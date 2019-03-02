@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".MainActivity"
+            android:name=".memory.MainActivity"
             android:theme="@style/ThemeSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,8 @@
         </activity>
 
         <service android:name=".intentService.MyIntentService" />
-        <activity android:name=".databinding.mvvmdemo.DemoMainActivity" />
+        <!--<activity android:name=".databinding.mvvmdemo.DemoMainActivity" />-->
+        <!--<activity android:name=".memory.MainActivity" />-->
     </application>
 
 </manifest>
