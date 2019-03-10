@@ -35,7 +35,10 @@ public class MainActivity2 extends BindingBaseActivity {
 
     @Override
     public void onRefresh(int code,String content) {
-        binding.content.append(content+"\n");
+        if (code == 200) {
+            binding.content.append(content+"\n");
+        }
+
     }
 
     @Override
@@ -46,8 +49,14 @@ public class MainActivity2 extends BindingBaseActivity {
     public class Presenter{
 
         public void sendContent(View view){
-            ObserverManager.getInstance().notifyObserver(this.hashCode(),observerName()+"..."+ System.currentTimeMillis());
+            ObserverManager.getInstance().setChanged();
+            ObserverManager.getInstance().notifyObserver(200,observerName()+"..."+ System.currentTimeMillis());
         }
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ObserverManager.getInstance().removeObserver(this);
     }
 }

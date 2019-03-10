@@ -35,6 +35,7 @@ public class MainActivity extends BindingBaseActivity {
     protected void initData() {
         workThread=  new WorkThread();
         workThread.start();
+
     }
 
     @Override
@@ -66,6 +67,7 @@ public class MainActivity extends BindingBaseActivity {
         }
 
         public void sendContent(View view){
+            ObserverManager.getInstance().setChanged();
             ObserverManager.getInstance().notifyObserver(100, "主线程消息："+System.currentTimeMillis());
         }
 

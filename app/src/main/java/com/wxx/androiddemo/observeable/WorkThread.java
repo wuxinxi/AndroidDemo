@@ -22,6 +22,7 @@ public class WorkThread extends Thread {
         super.run();
         do {
             System.out.println("WorkThread.run");
+            ObserverManager.getInstance().setChanged();
             ObserverManager.getInstance().notifyObserver(100,"我是循環消息:"+System.currentTimeMillis());
             SystemClock.sleep(5000);
         }while (isOpen);
