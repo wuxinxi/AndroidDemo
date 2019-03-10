@@ -16,7 +16,7 @@ import java.lang.ref.WeakReference;
  * 作者：Tangren on 2019-03-02
  * 包名：com.wxx.androiddemo.memory
  * 邮箱：996489865@qq.com
- * TODO:一句话描述
+ * TODO:内存分析
  */
 public class MainActivity extends BaseActivity {
     @Override

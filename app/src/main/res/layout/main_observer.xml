@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="presenter"
+            type="com.wxx.androiddemo.observeable.MainActivity.Presenter"/>
+    </data>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/colorWhite"
+    android:layout_height="match_parent">
+    <Button
+        android:layout_width="match_parent"
+        android:background="@drawable/press"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorWhite"
+        android:text="跳转下一页"
+        android:onClick="@{presenter.jumpNetActivity}"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="match_parent"
+        android:background="@drawable/press"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/jump"
+        android:textColor="@color/colorWhite"
+        android:text="发送消息"
+        android:onClick="@{presenter.sendContent}"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_margin="10dp"
+        android:lineSpacingExtra="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+</layout>
