@@ -14,11 +14,12 @@
         android:label="@string/name"
         android:roundIcon="@drawable/ic_launcher_drawable"
         android:supportsRtl="true"
+        tools:replace="android:label"
         android:networkSecurityConfig="@xml/net_work_config"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".observeable.MainActivity">
+            android:name=".oss.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
