@@ -1,13 +1,18 @@
 package com.wxx.androiddemo;
 
-import android.content.Context;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+
+import com.wxx.retrofit.GitHubService;
+import com.wxx.retrofit.User;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.*;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -19,8 +24,23 @@ public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
         // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.github.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-        assertEquals("com.wxx.androiddemo", appContext.getPackageName());
+        GitHubService service = retrofit.create(GitHubService.class);
+        service.getService().enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                System.out.println("response = " + response.body().toString());
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                System.err.println("ExampleInstrumentedTest.onFailure");
+            }
+        });
+
     }
 }

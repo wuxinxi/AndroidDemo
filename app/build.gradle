@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 28
@@ -20,6 +21,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        //HttpLoggingInterceptor
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    greendao{
+        schemaVersion 1
+        daoPackage 'com.wxx.androiddemo.greendao.dao'
+        targetGenDir 'src/main/java'
+    }
 }
 
 dependencies {
@@ -32,6 +45,13 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'com.alibaba:fastjson:1.2.34'
-    implementation 'com.yanzhenjie.nohttp:okhttp:1.1.10'
+    implementation 'com.yanzhenjie.nohttp:okhttp:1.1.11'
+    implementation 'com.yanzhenjie.nohttp:nohttp:1.1.11'
     implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.aliyun.dpa:oss-android-sdk:2.9.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.0"'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.0'
+    implementation 'org.greenrobot:greendao:3.2.2'
 }

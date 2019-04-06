@@ -24,6 +24,7 @@ public class BaseDao<T> implements IBaseDao<T> {
     private Class<T> entityClass;
     private String tableName;
 
+
     @Override
     public Long insert(T entity) {
         return null;

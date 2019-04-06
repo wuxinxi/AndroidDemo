@@ -12,14 +12,13 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher_drawable"
         android:label="@string/name"
+        android:networkSecurityConfig="@xml/net_work_config"
         android:roundIcon="@drawable/ic_launcher_drawable"
         android:supportsRtl="true"
-        tools:replace="android:label"
-        android:networkSecurityConfig="@xml/net_work_config"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".oss.MainActivity">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:label">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +27,10 @@
         </activity>
 
         <service android:name=".intentService.MyIntentService" />
-        <activity android:name=".observeable.MainActivity2"/>
+
+        <activity android:name=".observeable.MainActivity2" />
+        <activity android:name="com.wxx.plugintest.MainActivity" />
+        <activity android:name=".greendao.MainActivity"/>
         <!--<activity android:name=".databinding.mvvmdemo.DemoMainActivity" />-->
         <!--<activity android:name=".memory.MainActivity" />-->
     </application>
